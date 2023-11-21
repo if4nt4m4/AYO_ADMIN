@@ -24,9 +24,11 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Harap isi semua bidang", Toast.LENGTH_SHORT).show()
             } else if (email == "admin" && password == "admin") {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Username atau password salah", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "email atau password salah", Toast.LENGTH_SHORT).show()
             }
         }
 
