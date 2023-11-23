@@ -29,11 +29,10 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <LinearLayout
-                android:id="@+id/ly_text"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/tv_no"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,12 +41,26 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:id="@+id/tv_namalngkp"
+                    android:id="@+id/tv_nmlkp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Lengkap : "
+                    android:text="Nama  : "
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_namalngkp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="Kresnabayu Dr "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_nmlkp"/>
 
                 <TextView
                     android:id="@+id/tv_nohp"
@@ -55,26 +68,46 @@
                     android:layout_height="wrap_content"
                     android:text="No.Hp : "
                     android:textSize="15dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nmlkp"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_nohpuser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="087764526307 "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_namalngkp"
+                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
+                    />
 
                 <TextView
                     android:id="@+id/tv_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email : "
+                    android:text="Email   : "
                     android:textSize="15dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nohp"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
                     android:id="@+id/tv_umur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Umur : "
+                    android:text="Umur   : "
                     android:textSize="15dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_email"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
 
-            </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/bt_checkout"
@@ -84,7 +117,7 @@
                 android:backgroundTint="#ff0000"
                 android:text="Check Out"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ly_text"
+                app:layout_constraintTop_toBottomOf="@id/cl_text"
                 app:layout_constraintEnd_toStartOf="@id/bt_checkin"/>
 
             <Button
@@ -95,7 +128,7 @@
                 android:backgroundTint="#00BFFF"
                 android:text="Check In"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ly_text"
+                app:layout_constraintTop_toBottomOf="@id/cl_text"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
 
