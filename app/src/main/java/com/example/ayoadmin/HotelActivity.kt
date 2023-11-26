@@ -20,14 +20,8 @@ class HotelActivity : AppCompatActivity() {
     private fun createHotelList(): MutableList<Hotel>{
         val hotelList = mutableListOf<Hotel>()
 
-        val hotel1 = Hotel(R.drawable.logo_admin,"AYO MADIUN", "Kota Madiun")
+        val hotel1 = Hotel("AYO MADIUN",)
         hotelList.add(hotel1)
-
-        val hotel2 = Hotel(R.drawable.logo_admin,"AYO MADIUN", "Kota Madiun")
-        hotelList.add(hotel2)
-
-        val hotel3 = Hotel(R.drawable.logo_admin,"AYO MADIUN", "Kota Madiun")
-        hotelList.add(hotel3)
 
         return hotelList
     }

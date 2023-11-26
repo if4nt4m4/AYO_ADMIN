@@ -27,14 +27,10 @@ class HotelAdapter(private val hotelList: MutableList<Hotel>): RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val hotel = hotelList[position]
-        holder.ivGambarHotel.setImageResource(hotel.gambarhotel)
         holder.tvNamaHotel.text = hotel.namahotel
-        holder.tvAlamatHotel.text = hotel.alamathotel
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val ivGambarHotel: ImageView = itemView.findViewById(R.id.iv_hotel)
         val tvNamaHotel: TextView = itemView.findViewById(R.id.tv_namahotel)
-        val tvAlamatHotel: TextView = itemView.findViewById(R.id.tv_alamathotel)
     }
 }

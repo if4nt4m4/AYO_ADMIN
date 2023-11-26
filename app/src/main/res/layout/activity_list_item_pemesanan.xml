@@ -76,7 +76,7 @@
                     android:id="@+id/tv_nohpuser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="60dp"
                     android:text="087764526307 "
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -96,6 +96,19 @@
                     app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tv_emailuser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="rsv@gmail,com "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nohpuser"
+                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
+                    />
+
+                <TextView
                     android:id="@+id/tv_umur"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,6 +117,19 @@
                     android:textColor="@color/black"
                     app:layout_constraintTop_toBottomOf="@id/tv_email"
                     app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_umuruser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="18 "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_emailuser"
+                    app:layout_constraintStart_toEndOf="@id/tv_emailuser"
+                    />
 
 
 
