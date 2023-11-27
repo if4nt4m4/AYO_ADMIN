@@ -2,15 +2,19 @@ package com.example.ayoadmin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.RecoverySystem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ayoadmin.Adapter.HotelAdapter
+import com.example.ayoadmin.Models.Hotel
+import com.google.firebase.database.DatabaseReference
 
 class HotelActivity : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotel)
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_listhotel)
+
+        recyclerView = findViewById(R.id.rv_listhotel)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val hotelList = createHotelList()

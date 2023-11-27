@@ -1,15 +1,16 @@
-package com.example.ayoadmin
+package com.example.ayoadmin.Adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ayoadmin.Models.Pesan
+import com.example.ayoadmin.R
 
 class PesanAdapter(private val pesanList: MutableList<Pesan>): RecyclerView.Adapter<PesanAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PesanAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_pemesanan,parent,false)
         return ViewHolder(view)
     }
@@ -28,7 +29,7 @@ class PesanAdapter(private val pesanList: MutableList<Pesan>): RecyclerView.Adap
         val tvUmur: TextView = itemView.findViewById(R.id.tv_umuruser)
     }
 
-    override fun onBindViewHolder(holder: PesanAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pesan = pesanList[position]
         holder.tvNo.text = pesan.No.toString()
         holder.tvNamaPemesan.text = pesan.Nama

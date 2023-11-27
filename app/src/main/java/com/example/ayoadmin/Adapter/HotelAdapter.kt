@@ -1,13 +1,13 @@
-package com.example.ayoadmin
+package com.example.ayoadmin.Adapter
 
 import android.annotation.SuppressLint
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ayoadmin.Models.Hotel
+import com.example.ayoadmin.R
 
 class HotelAdapter(private val hotelList: MutableList<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
