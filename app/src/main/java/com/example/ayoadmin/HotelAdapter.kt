@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HotelAdapter(private val hotelList: MutableList<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_hotel, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_list_item_hotel, parent, false)
         return ViewHolder(view)
     }
 
