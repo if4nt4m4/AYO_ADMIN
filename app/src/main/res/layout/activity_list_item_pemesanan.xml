@@ -68,9 +68,25 @@
                     android:id="@+id/hargaKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                        android:text="Harga Kamar"
+                    android:text="Harga Kamar"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tipeKamar" />
+
+                <TextView
+                    android:id="@+id/checkIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check In"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hargaKamar" />
+
+                <TextView
+                    android:id="@+id/checkOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check Out"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/checkIn" />
 
                 <TextView
                     android:id="@+id/namaPemesan"
@@ -78,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nama Pemesan"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/hargaKamar" />
+                    app:layout_constraintTop_toBottomOf="@id/checkOut" />
 
                 <TextView
                     android:id="@+id/nohpPemesan"

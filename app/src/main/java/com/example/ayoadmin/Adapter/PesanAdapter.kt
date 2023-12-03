@@ -16,12 +16,13 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         return ViewHolder(itemView)
     }
 
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaHotel: TextView = itemView.findViewById(R.id.namaHotel)
         val alamatHotel: TextView = itemView.findViewById(R.id.alamatHotel)
         val tipeKamar: TextView = itemView.findViewById(R.id.tipeKamar)
         val hargaKamar: TextView = itemView.findViewById(R.id.hargaKamar)
+        val tglCheckin: TextView = itemView.findViewById(R.id.checkIn)
+        val tglCheckout: TextView = itemView.findViewById(R.id.checkOut)
         val namaPemesan: TextView = itemView.findViewById(R.id.namaPemesan)
         val emailPemesan: TextView = itemView.findViewById(R.id.emailPemesan)
         val nohpPemesan: TextView = itemView.findViewById(R.id.nohpPemesan)
@@ -35,6 +36,8 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         holder.alamatHotel.text = pesan.alamatHotel
         holder.tipeKamar.text = pesan.tipeKamar
         holder.hargaKamar.text = pesan.hargaKamar.toString()
+        holder.tglCheckin.text = pesan.tglCheckin
+        holder.tglCheckout.text = pesan.tglCheckout
         holder.namaPemesan.text = pesan.namaPemesan
         holder.emailPemesan.text = pesan.emailPemesan
         holder.nohpPemesan.text = pesan.nohpPemesan

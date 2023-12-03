@@ -5,6 +5,8 @@ class Pesan (
     var alamatHotel: String? = null,
     var tipeKamar: String? = null,
     var hargaKamar: Double? = null,
+    val tglCheckin: String?=null,
+    val tglCheckout: String?= null,
     var namaPemesan: String? = null,
     var emailPemesan: String? = null,
     var nohpPemesan: String? = null,

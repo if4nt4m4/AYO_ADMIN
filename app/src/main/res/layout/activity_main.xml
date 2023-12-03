@@ -23,6 +23,7 @@
             android:layout_margin="20dp"/>
         
         <ImageView
+            android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back"/>
@@ -30,20 +31,21 @@
     </LinearLayout>
 
     <ScrollView
+        android:id="@+id/sv_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bt_manage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ly_image"
+        app:layout_constraintTop_toBottomOf="@id/ly_image"
         android:layout_margin="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aplikasi ini"
+            android:text="Aplikasi Admin Pemesanan Hotel adalah sebuah platform yang dirancang khusus untuk memudahkan administrasi dan pengelolaan proses pemesanan kamar hotel. Aplikasi ini ditujukan untuk digunakan oleh pihak administrasi atau manajemen hotel guna mengoptimalkan operasional pemesanan dan memastikan pengalaman pengguna yang mulus. "
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
     </ScrollView>
 
