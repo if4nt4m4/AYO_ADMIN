@@ -41,95 +41,76 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:id="@+id/tv_nmlkp"
+                    android:id="@+id/namaHotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama  : "
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
+                    android:text="Nama Hotel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_namalngkp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="Kresnabayu Dr "
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_nmlkp"/>
-
-                <TextView
-                    android:id="@+id/tv_nohp"
+                    android:id="@+id/alamatHotel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No.Hp : "
-                    android:textSize="15dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@id/tv_nmlkp"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:text="Alamat Hotel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/namaHotel" />
 
                 <TextView
-                    android:id="@+id/tv_nohpuser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="087764526307 "
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_namalngkp"
-                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_email"
+                    android:id="@+id/tipeKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email   : "
-                    android:textSize="15dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@id/tv_nohp"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:text="Tipe Kamar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alamatHotel" />
 
                 <TextView
-                    android:id="@+id/tv_emailuser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="rsv@gmail.com "
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_nohpuser"
-                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_umur"
+                    android:id="@+id/hargaKamar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Umur   : "
-                    android:textSize="15dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@id/tv_email"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                        android:text="Harga Kamar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tipeKamar" />
 
                 <TextView
-                    android:id="@+id/tv_umuruser"
-                    android:layout_width="match_parent"
+                    android:id="@+id/namaPemesan"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="18 "
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_emailuser"
-                    app:layout_constraintStart_toEndOf="@id/tv_emailuser"
-                    />
+                    android:text="Nama Pemesan"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hargaKamar" />
+
+                <TextView
+                    android:id="@+id/nohpPemesan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No.HP Pemesan"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/namaPemesan" />
+
+                <TextView
+                    android:id="@+id/emailPemesan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email Pemesan"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nohpPemesan" />
+
+                <TextView
+                    android:id="@+id/umurPemesan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Umur Pemesan"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/emailPemesan" />
+
+                <TextView
+                    android:id="@+id/totalPembayaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Pembayaran"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/umurPemesan" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

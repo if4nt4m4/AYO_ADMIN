@@ -1,9 +1,13 @@
 package com.example.ayoadmin.Models
 
 class Pesan (
-    var No: Int,
-    var Nama: String = "",
-    var Nohp: String = "",
-    var Email: String = "",
-    var Umur: Int = 0
-    )
+    var namaHotel: String? = null,
+    var alamatHotel: String? = null,
+    var tipeKamar: String? = null,
+    var hargaKamar: Double? = null,
+    var namaPemesan: String? = null,
+    var emailPemesan: String? = null,
+    var nohpPemesan: String? = null,
+    var umurPemesan: Int? = null,
+    var totalPembayaran: Double? = null
+)
