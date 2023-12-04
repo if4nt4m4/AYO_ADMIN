@@ -17,7 +17,8 @@ class HotelActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hotel)
+        binding = ActivityHotelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.ivBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -26,8 +27,9 @@ class HotelActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rv_listhotel)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
 
-        val list = arrayListOf<Hotel>()
+        val list = ArrayList<Hotel>()
         list.add(Hotel("AYO MADIUN"))
         list.add(Hotel("AYO NGAWI"))
         list.add(Hotel("AYO MAGETAN"))

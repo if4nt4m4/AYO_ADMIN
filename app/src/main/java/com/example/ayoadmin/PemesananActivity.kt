@@ -22,33 +22,17 @@ class PemesananActivity : AppCompatActivity() {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var pesanAdapter: PesanAdapter
     private lateinit var binding: ActivityPemesananBinding
-    lateinit var checkInButton: Button
-    lateinit var checkOutButton: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pemesanan)
+        binding = ActivityPemesananBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        pemesanList = ArrayList()
 
         binding.ivBack.setOnClickListener{
             val intent = Intent(this, HotelActivity::class.java)
             startActivity(intent)
-        }
-
-        checkInButton = findViewById(R.id.bt_checkin)
-        checkOutButton = findViewById(R.id.bt_checkout)
-
-        checkInButton.setOnClickListener {
-            val database = FirebaseDatabase.getInstance()
-            val checkInRef = database.getReference("Pemesanan")
-            checkInRef.push().setValue("Check In")
-            Toast.makeText(this, "Tamu telah Check In", Toast.LENGTH_SHORT).show()
-        }
-
-        checkOutButton.setOnClickListener {
-            val database = FirebaseDatabase.getInstance()
-            val checkOutRef = database.getReference("Pemesanan")
-            checkOutRef.push().setValue("Check Out")
-            Toast.makeText(this, "Tamu telah Check Out", Toast.LENGTH_SHORT).show()
         }
 
         layoutManager = LinearLayoutManager(this)

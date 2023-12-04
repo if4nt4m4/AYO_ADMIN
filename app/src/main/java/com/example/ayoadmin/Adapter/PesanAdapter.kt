@@ -4,13 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ayoadmin.Models.Pesan
 import com.example.ayoadmin.R
+import com.google.firebase.database.FirebaseDatabase
 
 class PesanAdapter(private val context: Context, private val pemesanList: ArrayList<Pesan>): RecyclerView.Adapter<PesanAdapter.ViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_list_item_pemesanan, parent, false)
         return ViewHolder(itemView)
@@ -28,6 +30,8 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         val nohpPemesan: TextView = itemView.findViewById(R.id.nohpPemesan)
         val umurPemesan: TextView = itemView.findViewById(R.id.umurPemesan)
         val totalPembayaran: TextView = itemView.findViewById(R.id.totalPembayaran)
+        val btCheckin: Button = itemView.findViewById(R.id.bt_checkin)
+        val btCheckout: Button = itemView.findViewById(R.id.bt_checkout)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -43,6 +47,19 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         holder.nohpPemesan.text = pesan.nohpPemesan
         holder.umurPemesan.text = pesan.umurPemesan.toString()
         holder.totalPembayaran.text = pesan.totalPembayaran.toString()
+
+        holder.btCheckin.setOnClickListener{
+            val database = FirebaseDatabase.getInstance()
+            val checkInRef = database.getReference("Pemesanan")
+            checkInRef.push().setValue("Check In")
+            Toast.makeText(context, "Tamu telah Check In", Toast.LENGTH_SHORT).show()
+        }
+        holder.btCheckout.setOnClickListener {
+            val database = FirebaseDatabase.getInstance()
+            val checkOutRef = database.getReference("Pemesanan")
+            checkOutRef.push().setValue("Check Out")
+            Toast.makeText(context, "Tamu telah Check Out", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {

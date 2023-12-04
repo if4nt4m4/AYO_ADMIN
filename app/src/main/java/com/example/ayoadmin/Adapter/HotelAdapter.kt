@@ -9,18 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ayoadmin.Models.Hotel
 import com.example.ayoadmin.R
 
-class HotelAdapter(private val list: MutableList<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
+class HotelAdapter(private val list: List<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
 
     private var onItemClickListener: OnItemClickListener?=null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_list_item_hotel, parent, false)
         return ViewHolder(view)
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun addHotel(hotel: Hotel){
-        list.add(hotel)
-        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
