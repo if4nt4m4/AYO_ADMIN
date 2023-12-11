@@ -41,11 +41,15 @@
 
             </LinearLayout>
 
-
         </androidx.core.widget.NestedScrollView>
-
 
     </ScrollView>
 
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="300dp"
+        android:src="@mipmap/ic_add"/>
 
 </LinearLayout>

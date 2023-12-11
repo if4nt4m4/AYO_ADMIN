@@ -19,6 +19,11 @@ class HotelActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotel)
 
+        binding.ivAdd.setOnClickListener {
+            val intent = Intent(this, AddHotelActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.ivBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
