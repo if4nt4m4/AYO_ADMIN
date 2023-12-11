@@ -1,6 +1,7 @@
 package com.example.ayoadmin.Adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ayoadmin.Models.Hotel
 import com.example.ayoadmin.R
 
-class HotelAdapter(private val list: List<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
+class HotelAdapter(private val context: Context, private val Hotellist: List<Hotel>): RecyclerView.Adapter<HotelAdapter.ViewHolder>() {
 
     private var onItemClickListener: OnItemClickListener?=null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,11 +19,11 @@ class HotelAdapter(private val list: List<Hotel>): RecyclerView.Adapter<HotelAda
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return Hotellist.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val hotel = list[position]
+        val hotel = Hotellist[position]
         holder.tvNamaHotel.text = hotel.namahotel
     }
 
