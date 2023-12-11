@@ -20,6 +20,11 @@ class HotelActivity : AppCompatActivity() {
         binding = ActivityHotelBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.ivAdd.setOnClickListener {
+            val intent = Intent(this, AddHotelActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.ivBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
