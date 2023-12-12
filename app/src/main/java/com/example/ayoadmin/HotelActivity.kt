@@ -59,10 +59,7 @@ class HotelActivity : AppCompatActivity() {
         })
     }
 
-    private fun getData(){
-        val intent = intent
-        val namaHotel = intent.getStringExtra("hotelname")
-
+    private fun getData() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("Hotel")
 
@@ -72,7 +69,7 @@ class HotelActivity : AppCompatActivity() {
                 hotelList.clear()
                 for (HotelSnapshot in dataSnapshot.children){
                     val hotel = HotelSnapshot.getValue(Hotel::class.java)
-                    if (hotel != null && hotel.namahotel == namaHotel){
+                    if (hotel != null) {
                         hotelList.add(hotel)
                     }
                 }

@@ -40,31 +40,43 @@ class AddHotelActivity : AppCompatActivity() {
             binding.ivAddimage.setImageResource(android.R.color.transparent)
             binding.etNamahotel.setText("")
             binding.etAlamathotel.setText("")
+            binding.etWisata.setText("")
             binding.etFasilitas.setText("")
             binding.etTipekamar1.setText("")
+            binding.etHargatipekamar1.setText("")
             binding.etTipekamar2.setText("")
+            binding.etHargatipekamar2.setText("")
             binding.etTipekamar3.setText("")
+            binding.etHargatipekamar3.setText("")
         }
     }
     fun insertData(view: View){
         val itemName = binding.etNamahotel.text.toString()
         val itemAddress = binding.etAlamathotel.text.toString()
+        val itemWis = binding.etWisata.text.toString()
         val itemFasilitas = binding.etFasilitas.text.toString()
         val itemTK1 = binding.etTipekamar1.text.toString()
+        val itemHTK1 = binding.etHargatipekamar1.text.toString().toInt()
         val itemTK2 = binding.etTipekamar2.text.toString()
+        val itemHTK2 = binding.etHargatipekamar2.text.toString().toInt()
         val itemTK3 = binding.etTipekamar3.text.toString()
+        val itemHTK3 = binding.etHargatipekamar3.text.toString().toInt()
         db = FirebaseDatabase.getInstance().getReference("Hotel")
-        val item = itemDs(sImage, itemName, itemAddress, itemFasilitas, itemTK1, itemTK2, itemTK3)
+        val item = itemDs(sImage, itemName, itemAddress, itemFasilitas, itemWis, itemTK1, itemHTK1, itemTK2, itemHTK2, itemTK3, itemHTK3 )
         val databaseReference = FirebaseDatabase.getInstance().reference
         val id = databaseReference.push().key
         db.child(id.toString()).setValue(item).addOnSuccessListener {
             sImage = ""
             binding.etNamahotel.text.clear()
             binding.etAlamathotel.text.clear()
+            binding.etWisata.text.clear()
             binding.etFasilitas.text.clear()
             binding.etTipekamar1.text.clear()
+            binding.etHargatipekamar1.text.clear()
             binding.etTipekamar2.text.clear()
+            binding.etHargatipekamar2.text.clear()
             binding.etTipekamar3.text.clear()
+            binding.etHargatipekamar3.text.clear()
             Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this, "Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
