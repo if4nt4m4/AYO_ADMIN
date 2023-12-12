@@ -7,13 +7,9 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.ayoadmin.Item.itemDs
 import com.example.ayoadmin.databinding.ActivityAddHotelBinding
@@ -21,9 +17,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.io.ByteArrayOutputStream
 import java.lang.Exception
-import java.lang.ref.Reference
-import java.util.Base64
-import java.util.UUID
 
 class AddHotelActivity : AppCompatActivity() {
 
@@ -56,30 +49,43 @@ class AddHotelActivity : AppCompatActivity() {
         val itemWis = binding.etWisata.text.toString()
         val itemFasilitas = binding.etFasilitas.text.toString()
         val itemTK1 = binding.etTipekamar1.text.toString()
-        val itemHTK1 = binding.etHargatipekamar1.text.toString().toInt()
+        val itemHTK1 = binding.etHargatipekamar1.text.toString()
         val itemTK2 = binding.etTipekamar2.text.toString()
-        val itemHTK2 = binding.etHargatipekamar2.text.toString().toInt()
+        val itemHTK2 = binding.etHargatipekamar2.text.toString()
         val itemTK3 = binding.etTipekamar3.text.toString()
-        val itemHTK3 = binding.etHargatipekamar3.text.toString().toInt()
-        db = FirebaseDatabase.getInstance().getReference("Hotel")
-        val item = itemDs(sImage, itemName, itemAddress, itemFasilitas, itemWis, itemTK1, itemHTK1, itemTK2, itemHTK2, itemTK3, itemHTK3 )
-        val databaseReference = FirebaseDatabase.getInstance().reference
-        val id = databaseReference.push().key
-        db.child(id.toString()).setValue(item).addOnSuccessListener {
-            sImage = ""
-            binding.etNamahotel.text.clear()
-            binding.etAlamathotel.text.clear()
-            binding.etWisata.text.clear()
-            binding.etFasilitas.text.clear()
-            binding.etTipekamar1.text.clear()
-            binding.etHargatipekamar1.text.clear()
-            binding.etTipekamar2.text.clear()
-            binding.etHargatipekamar2.text.clear()
-            binding.etTipekamar3.text.clear()
-            binding.etHargatipekamar3.text.clear()
-            Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Toast.makeText(this, "Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
+        val itemHTK3 = binding.etHargatipekamar3.text.toString()
+
+        var intHTK1 = 0
+        var intHTK2 = 0
+        var intHTK3 = 0
+
+        try {
+            intHTK1 = Integer.parseInt(itemHTK1)
+            intHTK2 = Integer.parseInt(itemHTK2)
+            intHTK3 = Integer.parseInt(itemHTK3)
+
+            db = FirebaseDatabase.getInstance().getReference("Hotel")
+            val item = itemDs(sImage, itemName, itemAddress, itemWis, itemFasilitas, itemTK1, intHTK1, itemTK2, intHTK2, itemTK3, intHTK3 )
+            val databaseReference = FirebaseDatabase.getInstance().reference
+            val id = databaseReference.push().key
+            db.child(id.toString()).setValue(item).addOnSuccessListener {
+                sImage = ""
+                binding.etNamahotel.text.clear()
+                binding.etAlamathotel.text.clear()
+                binding.etWisata.text.clear()
+                binding.etFasilitas.text.clear()
+                binding.etTipekamar1.text.clear()
+                binding.etHargatipekamar1.text.clear()
+                binding.etTipekamar2.text.clear()
+                binding.etHargatipekamar2.text.clear()
+                binding.etTipekamar3.text.clear()
+                binding.etHargatipekamar3.text.clear()
+                Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "Harga harus berupa angka", Toast.LENGTH_SHORT).show()
         }
     }
 
