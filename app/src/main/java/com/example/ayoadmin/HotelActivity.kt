@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -53,31 +54,27 @@ class HotelActivity : AppCompatActivity() {
         hotelAdapter.setOnItemClickListener(object : HotelAdapter.OnItemClickListener{
             override fun onItemClick(position: Int){
                 val intent = Intent(this@HotelActivity, PemesananActivity::class.java)
-                intent.putExtra("hotelname", hotelList[position].namahotel)
+                intent.putExtra("hotelname", hotelList[position].itemName)
                 startActivity(intent)
             }
         })
     }
 
     private fun getData() {
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Hotel")
-
-        myRef.addValueEventListener(object : ValueEventListener {
+        val ref = FirebaseDatabase.getInstance().getReference("Hotel")
+        ref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                hotelList.clear()
-                for (HotelSnapshot in dataSnapshot.children){
-                    val hotel = HotelSnapshot.getValue(Hotel::class.java)
-                    if (hotel != null) {
-                        hotelList.add(hotel)
-                    }
+                if (dataSnapshot.exists()) {
+                    val newList = dataSnapshot.children.mapNotNull{it.getValue(Hotel::class.java)}
+                    hotelList.clear()
+                    hotelList.addAll(newList)
+                    hotelAdapter.notifyDataSetChanged()
                 }
-                hotelAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(this@HotelActivity, "Gagal menampilkan database: ${databaseError.message}", Toast.LENGTH_SHORT).show()
+                Log.d("Database Error: ", databaseError.getMessage())
             }
         })
     }

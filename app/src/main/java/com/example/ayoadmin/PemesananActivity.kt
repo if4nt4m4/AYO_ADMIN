@@ -45,15 +45,14 @@ class PemesananActivity : AppCompatActivity() {
 
         getData()
 
-
         val NamaHotel = findViewById<TextView>(R.id.tv_nmhotel)
-        val hotelName = intent.getStringExtra("hotelname")
-        NamaHotel.text = hotelName
+        val itemName = intent.getStringExtra("itemName")
+        NamaHotel.text = itemName
     }
 
     private fun getData(){
         val intent = intent
-        val namaHotel = intent.getStringExtra("hotelname")
+        val namaHotel = intent.getStringExtra("itemName")
 
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("Pemesanan")

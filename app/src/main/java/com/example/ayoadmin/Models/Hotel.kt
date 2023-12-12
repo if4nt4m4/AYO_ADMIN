@@ -1,5 +1,5 @@
 package com.example.ayoadmin.Models
 
 class Hotel (
-    val namahotel : String = ""
+    val itemName : String ?= null
 )
