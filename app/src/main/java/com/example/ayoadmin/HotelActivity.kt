@@ -44,7 +44,7 @@ class HotelActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rv_listhotel)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
+        recyclerView.hasFixedSize()
 
         hotelAdapter = HotelAdapter(this, hotelList)
         recyclerView.adapter = hotelAdapter
@@ -54,7 +54,7 @@ class HotelActivity : AppCompatActivity() {
         hotelAdapter.setOnItemClickListener(object : HotelAdapter.OnItemClickListener{
             override fun onItemClick(position: Int){
                 val intent = Intent(this@HotelActivity, PemesananActivity::class.java)
-                intent.putExtra("hotelname", hotelList[position].itemName)
+                intent.putExtra("itemname", hotelList[position].itemName)
                 startActivity(intent)
             }
         })
@@ -65,6 +65,7 @@ class HotelActivity : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Log.d("Firebase Data", "DataSnapshot: $dataSnapshot")
                 if (dataSnapshot.exists()) {
                     val newList = dataSnapshot.children.mapNotNull{it.getValue(Hotel::class.java)}
                     hotelList.clear()
@@ -75,6 +76,7 @@ class HotelActivity : AppCompatActivity() {
 
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.d("Database Error: ", databaseError.getMessage())
+                Toast.makeText(applicationContext, "Database error", Toast.LENGTH_SHORT).show()
             }
         })
     }

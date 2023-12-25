@@ -24,7 +24,7 @@ class HotelAdapter(private val context: Context, private val Hotellist: List<Hot
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val hotel = Hotellist[position]
-        holder.tvNamaHotel.text = hotel.itemName
+        holder.tvNamaHotel.setText(hotel.itemName)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

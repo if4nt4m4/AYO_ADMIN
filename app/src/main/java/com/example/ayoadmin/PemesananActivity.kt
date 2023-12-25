@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ayoadmin.Adapter.PesanAdapter
+import com.example.ayoadmin.Models.Hotel
 import com.example.ayoadmin.Models.Pesan
 import com.example.ayoadmin.databinding.ActivityPemesananBinding
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -28,6 +29,10 @@ class PemesananActivity : AppCompatActivity() {
         binding = ActivityPemesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val NamaHotel = findViewById<TextView>(R.id.tv_nmhotel)
+        val itemName = intent.getStringExtra("itemName")
+        NamaHotel.text = itemName
+
         pemesanList = ArrayList()
 
         binding.ivBack.setOnClickListener{
@@ -45,9 +50,6 @@ class PemesananActivity : AppCompatActivity() {
 
         getData()
 
-        val NamaHotel = findViewById<TextView>(R.id.tv_nmhotel)
-        val itemName = intent.getStringExtra("itemName")
-        NamaHotel.text = itemName
     }
 
     private fun getData(){
@@ -67,6 +69,8 @@ class PemesananActivity : AppCompatActivity() {
                         pemesanList.add(pemesan)
                     }
                 }
+                pesanAdapter = PesanAdapter(this@PemesananActivity, pemesanList)
+                recyclerView.adapter = pesanAdapter
                 pesanAdapter.notifyDataSetChanged()
             }
 
