@@ -1,16 +1,16 @@
 package com.example.ayoadmin.Models
 
-class Pesan (
-    var namaHotel: String? = null,
-    var alamatHotel: String? = null,
-    var tipeKamar: String? = null,
-    var hargaKamar: Double? = null,
-    val tglCheckin: String?=null,
-    val tglCheckout: String?= null,
-    var namaPemesan: String? = null,
-    var emailPemesan: String? = null,
-    var nohpPemesan: String? = null,
-    var umurPemesan: Int? = null,
-    var totalPembayaran: Double? = null,
-    var kodePembayaran: Double?= null
+data class Pesan(
+    val namaHotel: String? = null,
+    val alamat: String? = null,
+    val tipeKamar: String? = null,
+    val hargaKamar: Int = 0,
+    val tanggalCheckIn: String? = null,
+    val tanggalCheckOut: String? = null,
+    val namaPemesan: String? = null,
+    val email: String? = null,
+    val noHp: String? = null,
+    val umur: Int ? = null,
+    val jumlahPembayaran: Int? = null,
+    val kodePembayaran: String? = null
 )

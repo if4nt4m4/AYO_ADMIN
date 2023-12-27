@@ -38,17 +38,17 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pesan = pemesanList[position]
         holder.namaHotel.text = pesan.namaHotel
-        holder.alamatHotel.text = pesan.alamatHotel
+        holder.alamatHotel.text = pesan.alamat
         holder.tipeKamar.text = pesan.tipeKamar
         holder.hargaKamar.text = pesan.hargaKamar.toString()
-        holder.tglCheckin.text = pesan.tglCheckin
-        holder.tglCheckout.text = pesan.tglCheckout
+        holder.tglCheckin.text = pesan.tanggalCheckIn
+        holder.tglCheckout.text = pesan.tanggalCheckOut
         holder.namaPemesan.text = pesan.namaPemesan
-        holder.emailPemesan.text = pesan.emailPemesan
-        holder.nohpPemesan.text = pesan.nohpPemesan
-        holder.umurPemesan.text = pesan.umurPemesan.toString()
-        holder.totalPembayaran.text = pesan.totalPembayaran.toString()
-        holder.kodePembayaran.text = pesan.kodePembayaran.toString()
+        holder.emailPemesan.text = pesan.email
+        holder.nohpPemesan.text = pesan.noHp?.toString() ?: ""
+        holder.umurPemesan.text = pesan.umur?.toString() ?: ""
+        holder.totalPembayaran.text = pesan.jumlahPembayaran?.toString() ?: ""
+        holder.kodePembayaran.text = pesan.kodePembayaran?.toString() ?: ""
 
         holder.btCheckin.setOnClickListener{
             val database = FirebaseDatabase.getInstance()
