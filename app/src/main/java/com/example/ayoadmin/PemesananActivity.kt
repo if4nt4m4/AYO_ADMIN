@@ -53,25 +53,16 @@ class PemesananActivity : AppCompatActivity() {
     }
 
     private fun getData(){
-        val intent = intent
-        val namaHotel = intent.getStringExtra("itemName")
-
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Pemesanan")
-
+        val myRef = FirebaseDatabase.getInstance().getReference("Pemesanan")
         myRef.addValueEventListener(object : ValueEventListener{
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                pemesanList.clear()
-                for (PemesanaSnapshot in dataSnapshot.children){
-                    val pemesan = PemesanaSnapshot.getValue(Pesan::class.java)
-                    if (pemesan != null && pemesan.namaHotel == namaHotel){
-                        pemesanList.add(pemesan)
-                    }
+                if (dataSnapshot.exists()){
+                    val newList = dataSnapshot.children.mapNotNull { it.getValue(Pesan::class.java) }
+                    pemesanList.clear()
+                    pemesanList.addAll(newList)
+                    pesanAdapter.notifyDataSetChanged()
                 }
-                pesanAdapter = PesanAdapter(this@PemesananActivity, pemesanList)
-                recyclerView.adapter = pesanAdapter
-                pesanAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

@@ -30,6 +30,7 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         val nohpPemesan: TextView = itemView.findViewById(R.id.nohpPemesan)
         val umurPemesan: TextView = itemView.findViewById(R.id.umurPemesan)
         val totalPembayaran: TextView = itemView.findViewById(R.id.totalPembayaran)
+        val kodePembayaran: TextView = itemView.findViewById(R.id.kodePembayaran)
         val btCheckin: Button = itemView.findViewById(R.id.bt_checkin)
         val btCheckout: Button = itemView.findViewById(R.id.bt_checkout)
     }
@@ -47,6 +48,7 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         holder.nohpPemesan.text = pesan.nohpPemesan
         holder.umurPemesan.text = pesan.umurPemesan.toString()
         holder.totalPembayaran.text = pesan.totalPembayaran.toString()
+        holder.kodePembayaran.text = pesan.kodePembayaran.toString()
 
         holder.btCheckin.setOnClickListener{
             val database = FirebaseDatabase.getInstance()

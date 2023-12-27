@@ -11,5 +11,6 @@ class Pesan (
     var emailPemesan: String? = null,
     var nohpPemesan: String? = null,
     var umurPemesan: Int? = null,
-    var totalPembayaran: Double? = null
+    var totalPembayaran: Double? = null,
+    var kodePembayaran: Double?= null
 )
