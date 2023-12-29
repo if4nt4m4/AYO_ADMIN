@@ -22,7 +22,6 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         val namaHotel: TextView = itemView.findViewById(R.id.namaHotel)
         val alamatHotel: TextView = itemView.findViewById(R.id.alamatHotel)
         val tipeKamar: TextView = itemView.findViewById(R.id.tipeKamar)
-        val hargaKamar: TextView = itemView.findViewById(R.id.hargaKamar)
         val tglCheckin: TextView = itemView.findViewById(R.id.checkIn)
         val tglCheckout: TextView = itemView.findViewById(R.id.checkOut)
         val namaPemesan: TextView = itemView.findViewById(R.id.namaPemesan)
@@ -39,16 +38,15 @@ class PesanAdapter(private val context: Context, private val pemesanList: ArrayL
         val pesan = pemesanList[position]
         holder.namaHotel.text = pesan.namaHotel
         holder.alamatHotel.text = pesan.alamat
-        holder.tipeKamar.text = pesan.tipeKamar
-        holder.hargaKamar.text = pesan.hargaKamar.toString()
+        holder.tipeKamar.text = pesan.tipekamar
         holder.tglCheckin.text = pesan.tanggalCheckIn
         holder.tglCheckout.text = pesan.tanggalCheckOut
         holder.namaPemesan.text = pesan.namaPemesan
         holder.emailPemesan.text = pesan.email
-        holder.nohpPemesan.text = pesan.noHp?.toString() ?: ""
-        holder.umurPemesan.text = pesan.umur?.toString() ?: ""
-        holder.totalPembayaran.text = pesan.jumlahPembayaran?.toString() ?: ""
-        holder.kodePembayaran.text = pesan.kodePembayaran?.toString() ?: ""
+        holder.nohpPemesan.text = pesan.noHp
+        holder.umurPemesan.text = pesan.umur
+        holder.totalPembayaran.text = pesan.jumlahPembayaran
+        holder.kodePembayaran.text = pesan.kodePembayaran
 
         holder.btCheckin.setOnClickListener{
             val database = FirebaseDatabase.getInstance()
